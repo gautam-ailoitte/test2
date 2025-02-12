@@ -20,6 +20,6 @@ class MainActivity : FlutterActivity() {
     @RequiresApi(VERSION_CODES.Q)
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        methodChannelManager = MethodChannelManager(this, flutterEngine)
+        methodChannelManager = MethodChannelManager(this,activity, flutterEngine)
     }
 }
