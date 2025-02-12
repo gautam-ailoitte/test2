@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi
 import java.util.*
 
 object ScreenTimeInfo {
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     fun getScreenTimeData(context: Context): Map<String, Long> {
         val usageStatsManager = context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
         val endTime = System.currentTimeMillis()

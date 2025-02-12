@@ -17,6 +17,7 @@ class MainActivity : FlutterActivity() {
     private lateinit var methodChannelManager: MethodChannelManager
 
 
+    @RequiresApi(VERSION_CODES.Q)
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         methodChannelManager = MethodChannelManager(this, flutterEngine)

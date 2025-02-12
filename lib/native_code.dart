@@ -14,7 +14,7 @@ class _NativeAndroidState extends State<NativeAndroid> {
   static const platform = MethodChannel('test/native');
   String _batteryLevel = "unknown level";
   bool hasUsagePermission = false;
-  Map<String, double> screenTimeData = {};
+  Map<String, int> screenTimeData = {};
 
   Future<bool> isUsageAccessGranted() async {
     try {
@@ -62,14 +62,15 @@ class _NativeAndroidState extends State<NativeAndroid> {
     return '${hours}h ${minutes}m';
   }
   Future<void> getScreenTimeData() async {
-    Map<String, double> screenTime = {};
+    Map<String, int> screenTime = {};
     print("screen time called 1");
     try {
       final Map<Object?, Object?> result =
           await platform.invokeMethod('getScreenTimeData');
       final screenTime = result.map(
-        (key, value) => MapEntry(key.toString(), (value as int)/(1000 * 60 * 60),),
+        (key, value) => MapEntry(key.toString(), (value as int)~/(1000 * 60),),
       );
+      screenTime.removeWhere((key, value) => value == 0);
       print("screen time called 2");
       log(screenTime.toString());
     } catch (e) {
@@ -124,7 +125,7 @@ class _NativeAndroidState extends State<NativeAndroid> {
               itemCount: screenTimeData.length,
               itemBuilder: (context, index) {
                 String packageName = screenTimeData.keys.elementAt(index);
-                double usageTime = screenTimeData.values.elementAt(index);
+                var usageTime = screenTimeData.values.elementAt(index);
 
                 return ListTile(
                   title: Text(packageName),
