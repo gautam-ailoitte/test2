@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.BIND_CALL_SCREENING_SERVICE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-
+    <uses-permission android:name="android.permission.BIND_SCREENING_SERVICE"
+        tools:ignore="ProtectedPermissions" />
+<!--    use tools ignore to grant system permission to an app -->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS"/>
