@@ -7,6 +7,7 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.telephony.PhoneNumberUtils
 
+
 object ContactUtils {
     private const val DAD_PHONE_NUMBER = "+917542036307" // Replace with actual dad's number
 
@@ -17,7 +18,7 @@ object ContactUtils {
         )
 
         val cursor: Cursor? = contentResolver.query(uri, null, null, null, null)
-        val isContact = cursor?.count ?: 0 > 0
+        val isContact = (cursor?.count ?: 0) > 0
         cursor?.close()
         return isContact
     }

@@ -8,7 +8,7 @@ import android.util.Log
 import com.example.test2.utlis.AudioUtils
 import com.example.test2.utlis.ContactUtils
 //
-
+// this service code is written in manifest so it automatically gets registered
 @RequiresApi(Build.VERSION_CODES.N)
 class MyCallScreeningService : CallScreeningService() {
 
@@ -25,6 +25,7 @@ class MyCallScreeningService : CallScreeningService() {
             blockCall(callDetails)
         }
     }
+
 
     private fun allowCall(callDetails: Call.Details) {
         val response = CallResponse.Builder()
