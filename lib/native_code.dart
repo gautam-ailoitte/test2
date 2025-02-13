@@ -65,19 +65,20 @@ class _NativeAndroidState extends State<NativeAndroid> {
     Map<String, int> screenTime = {};
     print("screen time called 1");
     try {
-      final Map<Object?, Object?> result =
+       Map<Object?, Object?> result =
           await platform.invokeMethod('getScreenTimeData');
-      final screenTime = result.map(
+       screenTime = result.map(
         (key, value) => MapEntry(key.toString(), (value as int)~/(1000 * 60),),
       );
       screenTime.removeWhere((key, value) => value == 0);
       print("screen time called 2");
-      log(screenTime.toString());
+      // log(screenTime.toString());
     } catch (e) {
       print("Failed to get screen time data: $e");
     }
     setState(() {
       screenTimeData = screenTime;
+      log(screenTimeData.toString());
     });
   }
 
