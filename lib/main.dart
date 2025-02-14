@@ -4,6 +4,7 @@ import 'package:test2/switch_page.dart';
 
 void main() {
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
